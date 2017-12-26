@@ -1,0 +1,42 @@
+{
+  "name": "sample-typescript-project",
+  "version": "1.0.0",
+  "description": "Sample Typescript Project with Gulp, Karma, Jasmine",
+  "main": "bundle.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "rgr-myrg",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jasmine": "^2.8.2",
+    "babel-core": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babelify": "^8.0.0",
+    "browserify": "^14.5.0",
+    "gulp": "^3.9.1",
+    "gulp-sourcemaps": "^2.6.2",
+    "gulp-typescript": "^3.2.3",
+    "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.8",
+    "jasmine": "^2.8.0",
+    "jasmine-core": "^2.8.0",
+    "jasmine-ts": "^0.2.1",
+    "karma": "^2.0.0",
+    "karma-browserify": "^5.1.2",
+    "karma-browserstack-launcher": "^1.3.0",
+    "karma-coverage": "^1.1.1",
+    "karma-jasmine": "^1.1.1",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "karma-spec-reporter": "0.0.32",
+    "karma-typescript-preprocessor": "^0.3.1",
+    "phantomjs-prebuilt": "^2.1.16",
+    "tsify": "^3.0.4",
+    "types": "^0.1.1",
+    "typescript": "^2.6.2",
+    "typings": "^2.1.1",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0",
+    "watchify": "^3.9.0"
+  }
+}
