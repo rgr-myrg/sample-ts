@@ -36,7 +36,7 @@ gulp.task("browserify", function () {
     return browserify({
         basedir: ".",
         debug: true,
-        entries: ["src/main/ts/SampleClass.ts"],
+        entries: ["src/main/ts/CBSiTracker.ts"],
         cache: {},
         packageCache: {}
     })
@@ -46,7 +46,7 @@ gulp.task("browserify", function () {
         extensions: [".ts"]
     })
     .bundle()
-    .pipe(source("bundle.js"))
+    .pipe(source("CBSiTracker.js"))
     .pipe(buffer())
     .pipe(sourcemaps.init({loadMaps: true}))
     .pipe(uglify())
