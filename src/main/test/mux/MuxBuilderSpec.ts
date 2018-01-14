@@ -1,4 +1,4 @@
-import {MuxBuilder} from "../ts/MuxBuilder";
+import {MuxBuilder} from "../../ts/mux/MuxBuilder";
 import * as Mux from "mux-embed";
 
 describe("MuxBuilder Spec", () => {

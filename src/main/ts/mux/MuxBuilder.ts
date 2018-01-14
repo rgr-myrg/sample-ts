@@ -1,10 +1,12 @@
+import {MuxConst} from "../../ts/mux/MuxConst";
 import * as Mux from "mux-embed";
 
 export class MuxBuilder {
 	private muxLib: any = require("mux-embed");
-	private isDebug: boolean = false;
 	private selectorId: string = null;
 	private videoData: Mux.VideoData = null;
+	private isDebug: boolean = false;
+	private hasMonitor: boolean = false;
 
 	public withSelectorId(id: string): MuxBuilder {
 		this.selectorId = id;
@@ -22,14 +24,22 @@ export class MuxBuilder {
 	}
 
 	public build(): MuxBuilder {
-		this.muxLib.monitor(this.selectorId, {
-			"debug": this.isDebug,
-			"data": this.videoData
-		});
+		if (!this.hasMonitor) {
+			this.muxLib.monitor(this.selectorId, {
+				"debug": this.isDebug,
+				"data": this.videoData
+			});
+
+			this.hasMonitor = true;
+		}
+
 		return this;
 	}
 
+	public destroy(): void {}
+
 	public emitVideoChange(): MuxBuilder {
+		this.muxLib.emit(this.selectorId, MuxConst.VIDEO_CHANGE, this.videoData);
 		return this;
 	}
 }

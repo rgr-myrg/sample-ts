@@ -1,5 +1,6 @@
-import {Events} from "../ts/Events";
-import {MuxBuilder} from "../ts/MuxBuilder";
+import {Events} from "../../ts/event/Events";
+import {EventSignal} from "../../ts/event/EventSignal";
+import {MuxBuilder} from "../../ts/mux/MuxBuilder";
 import * as Mux from "mux-embed";
 
 export class MuxSubscriber {
@@ -8,16 +9,15 @@ export class MuxSubscriber {
 	private hasPlayStart: boolean = false;
 
 	public constructor() {
-		Events.when.onPlayerLoaded.do((id: string) => {
-				this.selectorId = id;
-				console.log("[MuxSubscriber] id: ", this.selectorId);
+		Events.when.onPlayerLoaded
+			.do((id: string) => {
+				this.onPlayerLoaded(id);
 			});
 
 		Events.when.onVideoData
 			.do((data: Mux.VideoData) => {
 					this.onVideoData(data);
-			})
-			.else(() => {});
+			});
 
 		Events.when.onPlayStart
 			.do((data: Mux.VideoData) => {
@@ -26,11 +26,13 @@ export class MuxSubscriber {
 	}
 
 	private onPlayerLoaded(id: string): void {
+		console.log("[MuxSubscriber] id: ", id);
 		this.selectorId = id;
 	}
 
 	private onVideoData(data: Mux.VideoData): void {
 		console.log("[MuxSubscriber] data: ", data);
+
 		this.builder = new MuxBuilder()
 			.withSelectorId(this.selectorId)
 			.setData(data)
