@@ -27,7 +27,7 @@ gulp.task("clean", function() {
 	});
 });
 
-//gulp.task("copyHtml", function () {
+//gulp.task("copy", function () {
 //    return gulp.src(paths.pages)
 //        .pipe(gulp.dest("dist"));
 //});
@@ -66,3 +66,17 @@ gulp.task("single-run-tests", ["browserify"], function(done) {
 });
 
 gulp.task("default", ["single-run-tests"]);
+
+/*
+.pipe(uglify({
+    compress: {
+        global_defs: {
+            "DEBUG": false
+        }
+    }
+}))
+To remove console logs like:
+if (DEBUG) {
+	console.log("");
+}
+*/
