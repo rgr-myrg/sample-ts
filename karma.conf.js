@@ -3,11 +3,11 @@ module.exports = function (config) {
    basePath: '',
    frameworks: ['browserify', 'jasmine'],
    files: [
-     'src/main/test/*Spec.ts'
+     'src/main/test/*/*Spec.ts'
    ],
    exclude: [],
    preprocessors: {
-     'src/main/test/*Spec.ts': ['browserify','coverage']
+     'src/main/test/*/*Spec.ts': ['browserify','coverage']
    },
    browserify: {
      debug: true,
