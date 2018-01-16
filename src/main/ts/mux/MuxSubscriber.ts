@@ -1,5 +1,4 @@
 import {Events} from "../../ts/event/Events";
-import {EventSignal} from "../../ts/event/EventSignal";
 import {MuxBuilder} from "../../ts/mux/MuxBuilder";
 import * as Mux from "mux-embed";
 
@@ -16,7 +15,7 @@ export class MuxSubscriber {
 
 		Events.when.onVideoData
 			.do((data: Mux.VideoData) => {
-					this.onVideoData(data);
+				this.onVideoData(data);
 			});
 
 		Events.when.onPlayStart
